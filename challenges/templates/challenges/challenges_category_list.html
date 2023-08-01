@@ -23,10 +23,10 @@
 
                     {% for category in categories %}
                         <div class="card">
-                            <h2 class="card-title">
-                                {{ category.name }}
-                            </h2>
-                            <div class="text-right">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h2 class="card-title">
+                                    {{ category.name }}
+                                </h2>
                                 <strong>{{ category|number_of_challenges }} challenges</strong>
                             </div>
                             <p class="text-justify">
