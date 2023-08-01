@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/halfmoon.min.css' %}">
+</head>
+<body data-set-preferred-mode-onload="true">
+    <div class='page-wrapper with-navbar'>
+
+        <nav class='navbar'>
+            <p>Pwner</p>
+            <ul class="navbar-nav d-none d-md-flex">
+                <li class="nav-item">
+                    <a href="/admin/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="/challenges/" class="nav-link">Challenges</a>
+                </li>
+              </ul>
+
+            <div class="position-absolute top-0 right-0 z-10 p-10"> <!-- position-absolute = position: absolute, top-0 = top: 0, right-0 = right: 0, z-10 = z-index: 10, p-10 = padding: 1rem (10px) -->
+                <button class="btn btn-square" type="button" onclick="halfmoon.toggleDarkMode()">
+                    <i class="fa fa-moon-o" aria-hidden="true"></i>
+                    <span class="sr-only">Toggle dark mode</span> <!-- sr-only = only for screen readers -->
+                </button>
+            </div>
+        </nav>
+
+        {% block content%}
+        
+        {% endblock %}
+    <script src="{% static 'js/halfmoon.min.js' %}"></script>
+</body>
+</html>

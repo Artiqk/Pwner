@@ -1,0 +1,73 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenges - List</title>
+</head>
+<body data-set-preferred-mode-onload="true">
+    {% block content %}
+        <div class="content-wrapper">
+            <div class="container">
+                <div class="content">
+                    <h1 class="content-title font-size-22">
+                        {{ category.name }}
+                    </h1>
+                    <p class="text-justify">
+                        {{ category.description }}
+                    </p>
+
+                    {% for challenge in challenges %}
+                        <details class="collapse-panel w-800 mt-20 mw-full">
+                            <summary class="collapse-header">
+                                <strong class="font-size-16">{{ challenge.name }}</strong>
+                                <br />
+                                <span class="text-muted">{{ challenge.points }} points</span>
+                            </summary>
+                            <div class="collapse-content">
+                                <div class="card">
+                                    <div>
+                                        <strong>Name</strong>
+                                        <p class="font-size-14">
+                                            {{ challenge.name }}
+                                        </p>
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <strong>Description</strong>
+                                        <p class="font-size-14">
+                                            {{ challenge.description }}
+                                        </p>
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <strong>Difficulty</strong>
+                                        <p class="font-size-14">
+                                            {{ challenge.difficulty }}/5
+                                        </p>
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <strong>Points</strong>
+                                        <p class="font-size-14">
+                                            {{ challenge.points }}
+                                        </p>
+                                    </div>
+                                    <hr />
+                                    <div class="text-right">
+                                        <a href="{% url 'details' category=category.name|lower challenge_uuid=challenge.uuid %}" class="btn btn-primary">Go</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endblock  %}
+</body>
+</html>

@@ -1,0 +1,48 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge - {{ challenge.name }}</title>
+</head>
+
+<body data-set-preferred-mode-onload="true">
+    {% block content %}
+        <div class="content-wrapper">
+            <div class="w-800 mw-full">
+                <div class="card p-0">
+                    <div class="content">
+                        <div class="content-title">
+                            <h1 class="font-size-20">{{ challenge }}</h1>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="content">
+                        <h2 class="content-title font-size-16">Details</h2>
+                        <div>
+                            <strong>Description</strong>
+                            <br />
+                            {{ challenge.description }}
+                        </div>
+                        <hr />
+                        <div>
+                            <strong>Points</strong>
+                            <br />
+                            {{ challenge.points }}
+                        </div>
+                        <hr />
+                        <div>
+                            <strong>Difficulty</strong>
+                            <br />
+                            {{ challenge.difficulty }}/5
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+</body>
+</html>
