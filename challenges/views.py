@@ -2,7 +2,18 @@ from django.views.generic import TemplateView
 from .models import Challenge, ChallengeCategory
 
 
-class ChallengeCategoryListView(TemplateView):
+class BaseView(TemplateView):
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        context['active_page'] = 'challenges'
+        
+        return context
+    
+
+
+class ChallengeCategoryListView(BaseView):
     model = Challenge
     
     template_name = 'challenges/challenges_category_list.html'
@@ -18,7 +29,7 @@ class ChallengeCategoryListView(TemplateView):
     
 
 
-class ChallengeListView(TemplateView):
+class ChallengeListView(BaseView):
     model = Challenge
 
     template_name = 'challenges/challenges_list.html'
@@ -36,7 +47,7 @@ class ChallengeListView(TemplateView):
 
 
 
-class ChallengeDetailsView(TemplateView):
+class ChallengeDetailsView(BaseView):
     model = Challenge
 
     template_name = 'challenges/view_challenge.html'
