@@ -18,9 +18,14 @@
             <ul class="navbar-nav d-none d-md-flex">
                 <li class="nav-item">
                     <a href="/admin/" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item active">
+                </li> 
+                <!-- FIXME - Use reverse urls -->
+                <li class="nav-item {% if active_page == 'challenges' %}active{% endif %}">
                     <a href="/challenges/" class="nav-link">Challenges</a>
+                </li>
+                <!-- FIXME - Use reverse urls -->
+                <li class="nav-item {% if active_page == 'docs' %}active{% endif %}">
+                    <a href="/docs/" class="nav-link">Docs</a>
                 </li>
               </ul>
 
